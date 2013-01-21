@@ -11,13 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121094446) do
+ActiveRecord::Schema.define(:version => 20130121132736) do
 
   create_table "packages", :force => true do |t|
     t.string "name"
     t.string "version"
     t.string "dependencies"
-    t.string "r_version_needed"
     t.string "suggestions"
     t.string "license"
   end

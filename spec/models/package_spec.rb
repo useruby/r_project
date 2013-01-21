@@ -36,4 +36,24 @@ describe Package do
       end.should < 25
     end
   end
+  
+  describe 'r_version_needed' do
+    before do
+      @package_abind = FactoryGirl.build :package_abind
+      @package_acceptance_sampling = FactoryGirl.build :package_acceptance_sampling
+      @package_adabag = FactoryGirl.build :package_adabag
+    end
+
+    it 'should return >= 1.5.0 for package_abind' do
+      @package_abind.r_version_needed.should == '>= 1.5.0'
+    end
+
+    it 'should return >= 2.4.0 for package_acceptance_sampling' do
+      @package_acceptance_sampling.r_version_needed.should == '>= 2.4.0'
+    end
+
+    it 'should return null for package_adabag' do
+      @package_adabag.r_version_needed.should be_nil
+    end
+  end
 end

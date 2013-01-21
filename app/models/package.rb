@@ -54,4 +54,8 @@ class Package < ActiveRecord::Base
 
     transformed_package_attrs
   end
+
+  def r_version_needed
+    dependencies.match(/R\s{0,1}\((.*)\)/).try(:[], 1)
+  end
 end
