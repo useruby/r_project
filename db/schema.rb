@@ -14,11 +14,13 @@
 ActiveRecord::Schema.define(:version => 20130121132736) do
 
   create_table "packages", :force => true do |t|
-    t.string "name"
-    t.string "version"
-    t.string "dependencies"
-    t.string "suggestions"
-    t.string "license"
+    t.string   "name"
+    t.string   "version"
+    t.string   "dependencies"
+    t.string   "suggestions"
+    t.string   "license"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end
