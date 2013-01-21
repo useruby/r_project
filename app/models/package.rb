@@ -1,6 +1,6 @@
 require 'net/http'
 
-class Packages < ActiveRecord::Base
+class Package < ActiveRecord::Base
   attr_accessible :name, :version, :dependencies, :r_version_needed, :suggestions, :license
 
   def self.download
@@ -23,7 +23,7 @@ class Packages < ActiveRecord::Base
 
         if parsed_line
           if parsed_line.has_key? 'Package'
-            Packages.create transform_package_fields_name_to_db_fields_name(package_attrs) unless package_attrs.empty?
+            Package.create transform_package_fields_name_to_db_fields_name(package_attrs) unless package_attrs.empty?
 
             package_attrs = parsed_line
           else
