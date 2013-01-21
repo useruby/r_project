@@ -7,7 +7,7 @@ class CreatePackages < ActiveRecord::Migration
       t.string :r_version_needed
       t.string :suggestions
       t.string :license     
-      t.timestamp
+      t.timestamps
     end
   end
 end
