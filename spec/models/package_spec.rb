@@ -32,7 +32,7 @@ describe Package do
 
       Benchmark.realtime do
         Package.parse('spec/fixtures/PACKAGES.gz')
-      end.should < 25
+      end.should < 30
     end
 
     it 'should not produce the dublicate records for same package with same version' do
@@ -70,6 +70,25 @@ describe Package do
 
     it 'should return null for package_adabag' do
       @package_adabag.r_version_needed.should be_nil
+    end
+  end
+
+  describe 'get_additional_info' do
+    before do
+      @package_ACCLMA = FactoryGirl.build :package_ACCLMA
+      Package.stub(:download_path).and_return('spec/fixtures/')
+    end
+
+    it 'should get additional info for package ACCLMA' do
+      package_additional_info = @package_ACCLMA.get_additional_info
+
+      package_additional_info.should_not be_empty
+    end
+
+    it 'should contain title for package ACCLMA' do
+      package_additional_info = @package_ACCLMA.get_additional_info
+    
+      package_additional_info[:title].should == 'ACC & LMA Graph Plotting'
     end
   end
 end

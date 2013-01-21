@@ -22,4 +22,10 @@ FactoryGirl.define do
     dependencies 'rpart, mlbench, caret'
     license 'GPL (>= 2)'
   end
+
+  factory :package_ACCLMA, parent: :package do
+    name 'ACCLMA'
+    version '1.0'
+    license 'GPL-2'
+  end
 end
